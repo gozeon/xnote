@@ -1,43 +1,24 @@
 import './style.css';
-import './app.css';
 
 import logo from './assets/images/logo-universal.png';
 import {Greet} from '../wailsjs/go/main/App';
 
-document.querySelector('#app').innerHTML = `
-    <img id="logo" class="logo">
-      <div class="result" id="result">Please enter your name below 👇</div>
-      <div class="input-box" id="input">
-        <input class="input" id="name" type="text" autocomplete="off" />
-        <button class="btn" onclick="greet()">Greet</button>
-      </div>
-    </div>
-`;
-document.getElementById('logo').src = logo;
+import {Menu} from './menu'
+import { EventsOn, LogDebug } from '../wailsjs/runtime/runtime';
+import { Container } from './container';
+import { NavView } from './views/nav';
 
-let nameElement = document.getElementById("name");
-nameElement.focus();
-let resultElement = document.getElementById("result");
+const root = document.querySelector('#app')
+const menu = new Menu(root)
+const container = new Container(root)
+console.log(new NavView())
 
-// Setup the greet function
-window.greet = function () {
-    // Get name
-    let name = nameElement.value;
+const defaultId = menu.appendItem("导航页", true)
+container.setView(defaultId, new NavView())
 
-    // Check if the input is empty
-    if (name === "") return;
 
-    // Call App.Greet(name)
-    try {
-        Greet(name)
-            .then((result) => {
-                // Update result with data back from App.Greet()
-                resultElement.innerText = result;
-            })
-            .catch((err) => {
-                console.error(err);
-            });
-    } catch (err) {
-        console.error(err);
-    }
-};
+container.activeView(defaultId)
+
+EventsOn('menuChange', () => {
+    container.activeView(menu.activeId)
+})
