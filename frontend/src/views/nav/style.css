@@ -1,3 +1,42 @@
-#nav {
-    background-color: aliceblue;
+#navView {
+    padding: 36px 48px;
+}
+
+#navView h2 {
+    color: var(--f);
+}
+
+#navView .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+#navView .grid div {
+    text-decoration: none;
+    /* background: rgb(202,216,232); */
+    opacity: 0.96;
+    background: var(--f);
+    border-radius: 5px;
+    padding: 8px 25px;
+    color: var(--a);
+    cursor: pointer;
+}
+
+#navView .grid div:hover {
+    transform: scale(1.2);
+    z-index: 1;
+}
+
+#navView .edit-btn{
+    float: right;
+    padding: 10px 8px;
+    background-color: rgba(var(--ao), .9);
+    color: var(--e);
+    cursor: pointer;
+}
+
+#navView .edit-btn:hover {
+    opacity: .8;
 }

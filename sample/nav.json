@@ -1,0 +1,13 @@
+{
+	"data": [
+        {
+            "category": "<kind>",
+            "links": [
+                {
+                    "title": "<title>",
+                    "url": "https://go.dev/"
+                }
+            ]
+        }
+    ]
+}

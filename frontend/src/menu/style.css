@@ -1,8 +1,8 @@
 #menu {
     width: 200px;
     height: 100%;
-    background-color: var(--a);
-    position: relative;
+    background-color: rgba(var(--ao), .8);
+    position: absolute;
 }
 
 #menu .menu-item {

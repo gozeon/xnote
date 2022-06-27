@@ -1,8 +1,15 @@
-# README
+# xnote
 
-## About
+![](screenshot.png)
 
-This is the official Wails Vanilla template.
+
+## TODO
+
+- [x] 导航栏
+- [ ] 密码本
+- [ ] 笔记
+
+> 暂时使用json文件进行持续化数据操作，数据格式可参考 `sample/` 文件夹
 
 ## Live Development
 

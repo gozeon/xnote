@@ -1,16 +1,23 @@
 :root {
-    --a: #1B1F3A;
+    --a: rgb(27, 31, 58);
+    --ao: 27, 31, 58;
     --b: #008F9F;
     --c: #F97E11;
     --d: #F2B950;
     --e: #F2F2F2;
+    --f: #ffffff;
+    --eo: 255, 255, 255;
+}
+html {
+    background: url("http://api.mtyqx.cn/api/random.php");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 body {
     margin: 0;
     font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
     "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
-    background-color: var(--e);
 }
 
 @font-face {

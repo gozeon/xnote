@@ -1,8 +1,12 @@
-module changeme
+module xnotte
 
 go 1.17
 
-require github.com/wailsapp/wails/v2 v2.0.0-beta.37
+require (
+	github.com/skratchdot/open-golang v0.0.0-20200116055534-eef842397966
+	github.com/sonyarouje/simdb v0.1.0
+	github.com/wailsapp/wails/v2 v2.0.0-beta.37
+)
 
 require (
 	github.com/go-ole/go-ole v1.2.6 // indirect
