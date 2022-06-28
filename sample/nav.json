@@ -1,10 +1,10 @@
 {
 	"data": [
         {
-            "category": "<kind>",
+            "category": "Language",
             "links": [
                 {
-                    "title": "<title>",
+                    "title": "Go",
                     "url": "https://go.dev/"
                 }
             ]

@@ -18,10 +18,12 @@ export class NavView {
 
     render() {
         LoadData(this.jsonFile).then(res => {
-            const {data} = res
-            for(let g of data) {
-                this.el.appendChild(this.appendGroup(g))
+            if(res.hasOwnProperty('data')) {
+                for(let g of res?.data) {
+                    this.el.appendChild(this.appendGroup(g))
+                }
             }
+            
         }).catch(err => alert(err))
     }
 

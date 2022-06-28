@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 	"xnotte/entity"
 
+	cp "github.com/otiai10/copy"
 	"github.com/skratchdot/open-golang/open"
 	"github.com/sonyarouje/simdb"
 )
@@ -40,13 +41,8 @@ func (a *App) startup(ctx context.Context) {
 	a.dataFolder = dataFolder
 
 	if _, err = os.Stat(dataFolder); os.IsNotExist(err) {
-		_ = os.MkdirAll(dataFolder, os.ModePerm)
-	}
-
-	navFile := filepath.Join(dataFolder, "nav.json")
-	if _, err = os.Stat(navFile); os.IsNotExist(err) {
-		_ = ioutil.WriteFile(filepath.Join(dataFolder, "nav.json"), []byte("{}"), os.ModePerm)
-
+		// copy sample folder
+		_ = cp.Copy(filepath.Join(cwd, "sample"), filepath.Join(cwd, "data"))
 	}
 }
 
