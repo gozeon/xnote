@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	_ "embed"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -9,7 +10,6 @@ import (
 	"path/filepath"
 	"xnotte/entity"
 
-	cp "github.com/otiai10/copy"
 	"github.com/skratchdot/open-golang/open"
 	"github.com/sonyarouje/simdb"
 )
@@ -26,6 +26,9 @@ func NewApp() *App {
 	return &App{}
 }
 
+//go:embed sample/nav.json
+var sampleNavData []byte
+
 // startup is called when the app starts. The context is saved
 // so we can call the runtime methods
 func (a *App) startup(ctx context.Context) {
@@ -41,9 +44,12 @@ func (a *App) startup(ctx context.Context) {
 	a.dataFolder = dataFolder
 
 	if _, err = os.Stat(dataFolder); os.IsNotExist(err) {
-		// copy sample folder
-		_ = cp.Copy(filepath.Join(cwd, "sample"), filepath.Join(cwd, "data"))
+		_ = os.MkdirAll(dataFolder, os.ModePerm)
+
 	}
+	// copy sample folder
+	_ = ioutil.WriteFile(filepath.Join(dataFolder, "nav.json"), sampleNavData, os.ModePerm)
+
 }
 
 // Greet returns a greeting for the given name
