@@ -49,25 +49,11 @@ func (a *App) startup(ctx context.Context) {
 	}
 	// copy sample folder
 	_ = ioutil.WriteFile(filepath.Join(dataFolder, "nav.json"), sampleNavData, os.ModePerm)
-
 }
 
 // Greet returns a greeting for the given name
 func (a *App) Greet(name string) string {
 	return fmt.Sprintf("Hello %s, It's show time!", name)
-}
-
-func (a *App) InsterNav(nav entity.Nav) (result bool, err error) {
-	err = a.db.Insert(nav)
-	result = true
-	return
-}
-
-func (a *App) ListNav() (result []entity.Nav, err error) {
-	var navs []entity.Nav
-	err = a.db.Open(entity.Nav{}).Get().AsEntity(&navs)
-	result = navs
-	return
 }
 
 func (a *App) LoadData(kind string) (data map[string]interface{}, err error) {
@@ -92,4 +78,25 @@ func (a *App) OpenDataFile(data string) (result bool, err error) {
 	}
 
 	return true, nil
+}
+
+func (a *App) ListPassword() (result []entity.Password, err error) {
+	var res []entity.Password
+	err = a.db.Open(entity.Password{}).Get().AsEntity(&res)
+	if err == simdb.ErrRecordNotFound {
+		return []entity.Password{}, nil
+	}
+	return res, err
+}
+
+func (a *App) InsterPassword(n entity.Password) (err error) {
+	return a.db.Insert(n)
+}
+
+func (a *App) UpdatePassword(n entity.Password) (err error) {
+	return a.db.Update(n)
+}
+
+func (a *App) DeletePassword(n entity.Password) (err error) {
+	return a.db.Delete(n)
 }

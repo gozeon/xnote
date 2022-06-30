@@ -1,5 +1,5 @@
 import { EventsEmit } from '../../wailsjs/runtime/runtime'
-import { shortId } from '../utils'
+import { hash, shortId } from '../utils'
 import './style.css'
 
 export class Menu {
@@ -16,7 +16,7 @@ export class Menu {
     }
 
     appendItem(text, actived=false) {
-        const id = shortId()
+        const id = hash(text)
         const el = document.createElement('div')
 
         el.className = 'menu-item'

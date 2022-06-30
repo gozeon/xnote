@@ -19,3 +19,12 @@ export const loadScript = (src) => new Promise((resolve, reject) => {
     s.onerror = reject
     document.head.appendChild(s);
 })
+
+/**
+ * https://developer.mozilla.org/en-US/docs/Glossary/Base64
+ * @param {*} str 
+ * @returns 
+ */
+export const hash = str => {
+    return btoa(encodeURIComponent(str))
+}

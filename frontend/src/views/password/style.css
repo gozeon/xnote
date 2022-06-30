@@ -1,0 +1,59 @@
+#password {
+    padding: 36px 48px;;
+}
+
+#password .searchbox {
+    display: flex;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 10px;
+    z-index: 2;
+}
+
+#password .searchbox input {
+    padding: 8px;
+    margin-right: 20px;
+}
+
+#password .box {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+#password .box div {
+    text-decoration: none;
+    /* background: rgb(202,216,232); */
+    opacity: 0.96;
+    background: var(--f);
+    border-radius: 5px;
+    padding: 8px 25px;
+    color: var(--a);
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#password .box div:hover {
+    transform: scale(1.2);
+    z-index: 1;
+}
+
+#password .box button{
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    color: var(--a);
+    /* padding: 5px; */
+}
+
+#password .box button:first-child {
+    margin-right: 10px;
+}
+
+#password .box button:last-child {
+    background-color: var(--c);
+}

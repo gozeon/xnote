@@ -3,7 +3,7 @@
 }
 
 #navView h2 {
-    color: var(--f);
+    color: var(--a);
 }
 
 #navView .grid {
@@ -21,6 +21,7 @@
     border-radius: 5px;
     padding: 8px 25px;
     color: var(--a);
+    font-weight: 600;
     cursor: pointer;
 }
 

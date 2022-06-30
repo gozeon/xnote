@@ -3,21 +3,29 @@ import './style.css';
 import './key'
 
 import {Menu} from './menu'
-import { EventsOn, LogDebug } from '../wailsjs/runtime/runtime';
+import { EventsOn } from '../wailsjs/runtime/runtime';
 import { Container } from './container';
 import { NavView } from './views/nav';
-import { LoadData } from '../wailsjs/go/main/App';
+import { PasswordView } from './views/password';
 
 const root = document.querySelector('#app')
 const menu = new Menu(root)
-const container = new Container(root)
+window.container = new Container(root)
 
 const defaultId = menu.appendItem("导航页", true)
 container.setView(defaultId, new NavView())
 
+container.setView(menu.appendItem("密码本"), new PasswordView())
 
-container.activeView(defaultId)
+const cacheActiveId = sessionStorage.getItem('activeId')
+if(cacheActiveId){
+    menu.activeItem(cacheActiveId)
+    container.activeView(cacheActiveId)
+} else {
+    container.activeView(defaultId)
+}
 
 EventsOn('menuChange', () => {
+    sessionStorage.setItem('activeId', menu.activeId)
     container.activeView(menu.activeId)
 })
