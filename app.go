@@ -46,9 +46,10 @@ func (a *App) startup(ctx context.Context) {
 	if _, err = os.Stat(dataFolder); os.IsNotExist(err) {
 		_ = os.MkdirAll(dataFolder, os.ModePerm)
 
+		// copy sample folder
+		_ = ioutil.WriteFile(filepath.Join(dataFolder, "nav.json"), sampleNavData, os.ModePerm)
 	}
-	// copy sample folder
-	_ = ioutil.WriteFile(filepath.Join(dataFolder, "nav.json"), sampleNavData, os.ModePerm)
+
 }
 
 // Greet returns a greeting for the given name

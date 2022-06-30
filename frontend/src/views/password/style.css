@@ -42,18 +42,21 @@
     z-index: 1;
 }
 
-#password .box button{
+#password .box .btn-group {
+    padding: 0;
+}
+
+#password .box .btn-group button{
     border: 0;
     outline: 0;
     cursor: pointer;
     color: var(--a);
     /* padding: 5px; */
-}
-
-#password .box button:first-child {
     margin-right: 10px;
 }
 
-#password .box button:last-child {
+
+#password .box .btn-group button:last-child {
     background-color: var(--c);
+    margin-right: 0;
 }

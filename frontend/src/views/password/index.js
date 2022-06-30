@@ -21,12 +21,19 @@ export class PasswordView {
             emptyEl(this.box)
             for (let item of d) {
                 const u = document.createElement('div')
-                u.textContent = item.name
+                u.textContent = item.pName
                 u.dataset.pwd = item.password
 
                 const btnGroup = document.createElement('div')
+                btnGroup.classList.add('btn-group')
+                const copyUBtn = document.createElement('button')
+                copyUBtn.textContent = "CopyU"
+                btnGroup.appendChild(copyUBtn)
+                copyUBtn.addEventListener('click', e => {
+                    this.copy(item.name)
+                })
                 const copyBtn = document.createElement('button')
-                copyBtn.textContent = "Copy"
+                copyBtn.textContent = "CopyP"
                 btnGroup.appendChild(copyBtn)
                 copyBtn.addEventListener('click', e => {
                     this.copy(item.password)
@@ -60,6 +67,12 @@ export class PasswordView {
                 this.fetch()
             }).catch(err => alert(err))
         })
+        const pnameInput = document.createElement('input')
+        pnameInput.placeholder = "项目名"
+        pnameInput.setAttribute('required', true)
+        pnameInput.setAttribute('name', 'pName')
+        searchBox.appendChild(pnameInput)
+
         const nameInput = document.createElement('input')
         nameInput.placeholder = "用户名"
         nameInput.setAttribute('required', true)

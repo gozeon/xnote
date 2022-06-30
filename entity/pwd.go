@@ -1,9 +1,10 @@
 package entity
 
 type Password struct {
-	Id       string `json:"id"`
-	Name     string `json:"name"`
-	Password string `json:"password"`
+	Id          string `json:"id"`
+	ProjectName string `json:"pName"`
+	Name        string `json:"name"`
+	Password    string `json:"password"`
 }
 
 //ID any struct that needs to persist should implement this function defined

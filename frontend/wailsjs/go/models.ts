@@ -2,6 +2,7 @@ export namespace entity {
 	
 	export class Password {
 	    id: string;
+	    pName: string;
 	    name: string;
 	    password: string;
 	
@@ -12,6 +13,7 @@ export namespace entity {
 	    constructor(source: any = {}) {
 	        if ('string' === typeof source) source = JSON.parse(source);
 	        this.id = source["id"];
+	        this.pName = source["pName"];
 	        this.name = source["name"];
 	        this.password = source["password"];
 	    }
