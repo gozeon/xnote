@@ -1,0 +1,37 @@
+#noteView{
+    display: flex;
+    height: 100vh;
+}
+#noteView .left {
+    width: 200px;
+    background: var(--b);
+    opacity: .8;
+}
+
+#noteView .left .name {
+    padding: 10px 40px;
+    color: var(--d);
+    cursor: pointer;
+    border-bottom: 1px solid var(--e);
+}
+#noteView .left .name:hover{
+    opacity: .7;
+}
+#noteView .left .name.active {
+    color: var(--c);
+    font-weight: 700;
+}
+
+#noteView .right {
+    flex: 1;
+}
+
+#noteView .right textarea {
+    width: 100%;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    resize: none;
+    padding: 0;
+    background-color: rgba(var(--eo), .7);
+}

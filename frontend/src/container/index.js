@@ -1,3 +1,5 @@
+import { EventsEmit } from "../../wailsjs/runtime/runtime";
+import eventbus from "../eventbus";
 import { emptyEl } from "../utils";
 import "./style.css";
 
@@ -23,8 +25,10 @@ export class Container {
   activeView(id) {
     const exist = this.views.has(id);
     if (exist) {
-        emptyEl(this.el)
-        this.el.appendChild(this.views.get(id))
+      const view = this.views.get(id)
+      emptyEl(this.el)
+      this.el.appendChild(view)
+      eventbus.emit("viewChange", {view})
     }
   }
 }

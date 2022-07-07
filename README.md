@@ -20,3 +20,8 @@ browser and connect to your application.
 ## Building
 
 To build a redistributable, production mode package, use `wails build`.
+
+
+## issure
+
+- https://github.com/wailsapp/wails/issues/1504
