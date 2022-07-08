@@ -36,4 +36,6 @@ body {
 
 .tox {
     opacity: .96;
+
+    border-radius: 0 !important;
 }

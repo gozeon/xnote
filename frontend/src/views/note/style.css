@@ -26,6 +26,10 @@
     flex: 1;
 }
 
+#noteView .right form {
+    height: 100%;
+}
+
 #noteView .right textarea {
     width: 100%;
     border: none;

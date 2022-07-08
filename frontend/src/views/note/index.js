@@ -13,10 +13,18 @@ export class NoteView {
 
         const right = document.createElement('div')
         right.classList.add('right')
-
+        
+        const editorForm = document.createElement('form')
         const editor = document.createElement('textarea')
         editor.id = 'editor'
-        right.appendChild(editor)
+        editorForm.appendChild(editor)
+
+
+        editorForm.onsubmit = e => {
+            // TODO: save
+            return false
+        }
+        right.appendChild(editorForm)
         this.el.appendChild(right)
 
 
