@@ -6,8 +6,24 @@ export function DeletePassword(arg1) {
   return window['go']['main']['App']['DeletePassword'](arg1);
 }
 
+export function GetLastestNote(arg1) {
+  return window['go']['main']['App']['GetLastestNote'](arg1);
+}
+
 export function Greet(arg1) {
   return window['go']['main']['App']['Greet'](arg1);
+}
+
+export function LoadData(arg1) {
+  return window['go']['main']['App']['LoadData'](arg1);
+}
+
+export function UpdateOrInsertNote(arg1) {
+  return window['go']['main']['App']['UpdateOrInsertNote'](arg1);
+}
+
+export function UpdatePassword(arg1) {
+  return window['go']['main']['App']['UpdatePassword'](arg1);
 }
 
 export function InsterPassword(arg1) {
@@ -18,14 +34,6 @@ export function ListPassword() {
   return window['go']['main']['App']['ListPassword']();
 }
 
-export function LoadData(arg1) {
-  return window['go']['main']['App']['LoadData'](arg1);
-}
-
 export function OpenDataFile(arg1) {
   return window['go']['main']['App']['OpenDataFile'](arg1);
-}
-
-export function UpdatePassword(arg1) {
-  return window['go']['main']['App']['UpdatePassword'](arg1);
 }

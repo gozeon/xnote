@@ -4,14 +4,18 @@ import {entity} from '../models';
 
 export function DeletePassword(arg1:entity.Password):Promise<Error>;
 
+export function GetLastestNote(arg1:entity.Note):Promise<entity.Note|Error>;
+
 export function Greet(arg1:string):Promise<string>;
+
+export function LoadData(arg1:string):Promise<any|Error>;
+
+export function UpdateOrInsertNote(arg1:entity.Note):Promise<Error>;
+
+export function UpdatePassword(arg1:entity.Password):Promise<Error>;
 
 export function InsterPassword(arg1:entity.Password):Promise<Error>;
 
 export function ListPassword():Promise<Array<entity.Password>|Error>;
 
-export function LoadData(arg1:string):Promise<any|Error>;
-
 export function OpenDataFile(arg1:string):Promise<boolean|Error>;
-
-export function UpdatePassword(arg1:entity.Password):Promise<Error>;

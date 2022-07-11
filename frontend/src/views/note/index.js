@@ -1,3 +1,5 @@
+import tinymce from 'tinymce'
+import { UpdateOrInsertNote } from '../../../wailsjs/go/main/App'
 import './style.css'
 
 export class NoteView {
@@ -19,9 +21,12 @@ export class NoteView {
         editor.id = 'editor'
         editorForm.appendChild(editor)
 
-
         editorForm.onsubmit = e => {
-            // TODO: save
+            const content = tinymce.activeEditor.getContent()
+            UpdateOrInsertNote({
+                id: 'note',
+                content: content
+            }).then(() => console.log('done')).catch(e => alert(e))
             return false
         }
         right.appendChild(editorForm)

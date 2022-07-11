@@ -101,3 +101,17 @@ func (a *App) UpdatePassword(n entity.Password) (err error) {
 func (a *App) DeletePassword(n entity.Password) (err error) {
 	return a.db.Delete(n)
 }
+
+func (a *App) GetLastestNote(n entity.Note) (note entity.Note, err error) {
+	var res entity.Note
+	err = a.db.Open(entity.Note{}).First().AsEntity(&res)
+	if err == simdb.ErrRecordNotFound {
+		return entity.Note{}, nil
+	}
+	return res, err
+
+}
+
+func (a *App) UpdateOrInsertNote(n entity.Note) (err error) {
+	return a.db.Upsert(n)
+}

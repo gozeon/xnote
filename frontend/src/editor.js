@@ -37,6 +37,7 @@ import 'tinymce/plugins/wordcount'
 import 'tinymce/skins/ui/oxide/skin.css'
 import skinContentCss from 'tinymce/skins/ui/oxide/content.css'
 import contentCss from 'tinymce/skins/content/default/content.css'
+import { GetLastestNote } from '../wailsjs/go/main/App'
 
 export const EditorInit = id => {
     tinymce.activeEditor?.destroy()
@@ -56,9 +57,16 @@ export const EditorInit = id => {
         images_upload_handler: (blobInfo, progress) => new Promise((resolve, reject) => {
             const fileName = blobInfo.filename().split('.')[1] || "png"
             resolve(`data:image/${fileName};base64,${blobInfo.base64()}`)
-        })
-    
+        }),
+        init_instance_callback: () => {
+            GetLastestNote().then(res => {
+                const {id, content} = res
+                tinymce.activeEditor?.setContent(content)
+            }).catch(e => alert(e))
+        }
     })
+
+
 
     return tinymce
     
