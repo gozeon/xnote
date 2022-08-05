@@ -11,7 +11,7 @@
 - [x] 导航栏
 - [x] 密码本
 - [x] 笔记本
-- [ ] 决策树
+- [x] [决策树](https://gozeon.github.io/decision-tree/)
 
 > 暂时使用json文件进行持续化数据操作，数据格式可参考 `sample/` 文件夹
 
